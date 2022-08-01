@@ -1,3 +1,4 @@
+import get from "lodash.get";
 import { GenericObject } from "../interfaces/genericObj";
 import { Paths } from "../interfaces/paths.interface";
 
@@ -13,7 +14,6 @@ export function getByPath<T extends GenericObject, O = unknown>(
   defaultValue?: unknown
 ): O {
   const traversablePath = path?.split(".");
-  return traversablePath?.reduce((acc, curr) => {
-    return acc ? acc[curr] : defaultValue;
-  }, obj) as any;
+  const value = get(obj, path, defaultValue) as O
+  return value
 }
