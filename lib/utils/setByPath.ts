@@ -3,6 +3,14 @@ import { deepClone } from "./deepClone";
 import { isObject } from "./isObject";
 import { GenericObject } from "../interfaces/genericObj";
 import { MAX_OBJECT_DEPTH } from "../constants/maxObjectDepth";
+import set from "lodash.set";
+
+export function setByPath<T extends GenericObject>(
+  obj: T,
+  path: string,
+  value: unknown,
+  pathSeparator?: string
+): unknown;
 
 export function setByPath<T extends GenericObject, K extends keyof T>(
   obj: T,
@@ -16,15 +24,6 @@ export function setByPath<T extends GenericObject, K extends keyof T>(
 
   const traversablePath = path?.split(pathSeparator) || [];
   const newObj = deepClone(obj);
-  let referenceValue = newObj;
 
-  for (const [index, entry] of traversablePath.entries()) {
-    if (index == traversablePath.length - 1) {
-      referenceValue[entry as keyof T] = value;
-    } else {
-      referenceValue = referenceValue[entry as keyof T];
-    }
-  }
-
-  return newObj;
+  return set(newObj, traversablePath, value);
 }
