@@ -1,6 +1,10 @@
-import { Mapper, MapperFn, MapperValue } from "../interfaces/mapper";
-import { getByPath } from "../utils/pathGet";
-import { setByPath } from "../utils/setter";
+import { GenericObject } from '../interfaces/genericObj.interface';
+import { Mapper } from '../interfaces/mapper.interface';
+import { MapperFn } from '../interfaces/mapperFn.interface';
+import { MapperValue } from "../interfaces/mapperValue.interface";
+import { Paths } from '../interfaces/paths.interface';
+import { getByPath } from "../utils/getByPath";
+import { setByPath } from "../utils/setByPath";
 
 const mapperApply = <T, O>(input: T, mapperValue: MapperValue<T, O>) => {
   console.log(input);
@@ -24,8 +28,8 @@ const mapperApply = <T, O>(input: T, mapperValue: MapperValue<T, O>) => {
 };
 
 export const mapper: MapperFn = <
-  T extends Record<string, unknown>,
-  S extends Record<string, unknown>
+  T extends GenericObject,
+  S extends GenericObject
 >(
   input: T,
   mapper: Mapper<T, S>

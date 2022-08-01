@@ -1,7 +1,7 @@
 import { Paths } from "../interfaces/paths.interface";
 import { deepClone } from "./deepClone";
 import { isObject } from "./isObject";
-import { GenericObject } from "../interfaces/genericObj";
+import { GenericObject } from "../interfaces/genericObj.interface";
 import { MAX_OBJECT_DEPTH } from "../constants/maxObjectDepth";
 import set from "lodash.set";
 
@@ -11,6 +11,13 @@ export function setByPath<T extends GenericObject>(
   value: unknown,
   pathSeparator?: string
 ): unknown;
+
+export function setByPath<T extends GenericObject, K extends keyof T>(
+  obj: T,
+  path: Paths<T, MAX_OBJECT_DEPTH> & string,
+  value: T[K],
+  pathSeparator?: string
+): T
 
 export function setByPath<T extends GenericObject, K extends keyof T>(
   obj: T,
