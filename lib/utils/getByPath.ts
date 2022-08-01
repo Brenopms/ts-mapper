@@ -1,9 +1,10 @@
 import get from "lodash.get";
+import { MAX_OBJECT_DEPTH } from '../constants/maxObjectDepth';
 import { GenericObject } from "../interfaces/genericObj.interface";
 import { Paths } from "../interfaces/paths.interface";
 
 export type Getter<T, O, S = unknown> = (
-  path: Paths<T, 3> & string,
+  path: Paths<T, MAX_OBJECT_DEPTH> & string,
   defaultValue?: S
 ) => O;
 
@@ -17,7 +18,7 @@ export function getByPath<T extends GenericObject, O = unknown>(
 
 export function getByPath<T extends GenericObject, O = unknown>(obj: T) {
   return function Getter<T>(
-    path: Paths<T, 3> & string,
+    path: Paths<T, MAX_OBJECT_DEPTH> & string,
     defaultValue?: unknown
   ): O {
     const traversablePath = path?.split(".") || [];
