@@ -7,6 +7,15 @@ describe("Testing setByPath function", () => {
     expect(result).toMatchObject({});
   });
 
+  it("Should not add any property if path is empty or invalid", () => {
+    const inputObj = { a: 1, b: { c: 2 } };
+    const path = "";
+    const value = 100;
+
+    const result = setByPath(inputObj, path, value);
+    expect(result).toMatchObject({ a: 1, b: { c: 2 } });
+  })
+
   it("Should NOT change the original object", () => {
     const inputObj = { a: 1, b: { c: 2 } };
     const path = "x.z";
@@ -39,4 +48,5 @@ describe("Testing setByPath function", () => {
     const result = setByPath(inputObj, path, value);
     expect(result).toMatchObject({ x: 100, z: [50] });
   });
+
 });

@@ -25,5 +25,5 @@ export function setByPath<T extends GenericObject, K extends keyof T>(
   const traversablePath = path?.split(pathSeparator) || [];
   const newObj = deepClone(obj);
 
-  return set(newObj, traversablePath, value);
+  return set<T>(newObj, traversablePath, value);
 }
