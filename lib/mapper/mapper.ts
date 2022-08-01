@@ -1,18 +1,11 @@
-import { GenericObject } from '../interfaces/genericObj.interface';
-import { Mapper } from '../interfaces/mapper.interface';
-import { MapperFn } from '../interfaces/mapperFn.interface';
+import { GenericObject } from "../interfaces/genericObj.interface";
+import { Mapper } from "../interfaces/mapper.interface";
+import { MapperFn } from "../interfaces/mapperFn.interface";
 import { MapperValue } from "../interfaces/mapperValue.interface";
-import { Paths } from '../interfaces/paths.interface';
 import { getByPath } from "../utils/getByPath";
 import { setByPath } from "../utils/setByPath";
 
 const mapperApply = <T, O>(input: T, mapperValue: MapperValue<T, O>) => {
-  console.log(input);
-  console.log(mapperValue);
-  if (mapperValue.value !== undefined) {
-    return mapperValue;
-  }
-
   if (mapperValue.srcPath) {
     return (
       getByPath(input, mapperValue.srcPath, mapperValue.defaultValue) ||
