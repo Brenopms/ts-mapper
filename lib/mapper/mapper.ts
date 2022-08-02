@@ -1,24 +1,8 @@
 import { GenericObject } from "../interfaces/genericObj.interface";
 import { Mapper } from "../interfaces/mapper.interface";
 import { MapperFn } from "../interfaces/mapperFn.interface";
-import { MapperValue } from "../interfaces/mapperValue.interface";
-import { getByPath } from "../utils/getByPath";
 import { setByPath } from "../utils/setByPath";
-
-const mapperApply = <T, O>(input: T, mapperValue: MapperValue<T, O>) => {
-  if (mapperValue.srcPath) {
-    return (
-      getByPath(input)(mapperValue.srcPath, mapperValue.defaultValue) ||
-      mapperValue.defaultValue
-    );
-  }
-
-  if (mapperValue.transform) {
-    return mapperValue?.transform?.(getByPath<T>(input));
-  }
-
-  return mapperValue.defaultValue;
-};
+import { mapperApply } from "./mapperApply";
 
 export const mapper: MapperFn = <
   T extends GenericObject,
