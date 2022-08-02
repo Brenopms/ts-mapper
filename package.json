@@ -4,10 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "author": "Breno Magalhaes",
   "license": "MIT",
+  "c8": {
+    "checkCoverage": true,
+    "lines": 75,
+    "statements": 75
+  },
   "dependencies": {
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2"
