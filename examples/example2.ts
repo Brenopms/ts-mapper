@@ -1,5 +1,6 @@
-import { Mapper } from "../lib/interfaces/mapper";
-import { mapper } from "../lib/mapper";
+import { Mapper } from "../lib/interfaces/mapper.interface";
+import { mapper } from "../lib/mapper/mapper";
+import { Getter } from '../lib/utils/getByPath';
 
 interface Input2 {
   prop1: {
@@ -20,7 +21,7 @@ interface Output2 {
   };
 }
 
-const input2: Input2 = {
+const input2 = {
   prop1: {
     prop2: "append",
     prop3: "text",
@@ -33,22 +34,22 @@ const mapper2: Mapper<Input2, Output2> = [
   {
     dstPath: "out1",
     defaultValue: "",
-    transform(input: Input2) {
-      return input.prop1.prop2 + "" + input.prop1.prop3;
+    transform(getter) {
+      return getter('prop1.prop2') + "" + getter('prop1.prop3');
     },
   },
   {
     dstPath: "out2",
     defaultValue: "",
-    transform(input: Input2) {
-      return input.prop4.reduce((prev, curr) => prev + curr);
+    transform(getter: Getter<Input2, string[]>) {
+      return getter('prop4').reduce((prev, curr) => prev + curr);
     },
   },
   {
     dstPath: "out3",
     defaultValue: "",
-    transform(input: Input2) {
-      return new Date(input.prop5);
+    transform(getter: Getter<Input2, string>) {
+      return new Date(getter('prop5'));
     },
   },
   {
@@ -59,5 +60,4 @@ const mapper2: Mapper<Input2, Output2> = [
 ];
 
 const output = mapper(input2, mapper2);
-console.log("OUTPUT:");
 console.log(output);
