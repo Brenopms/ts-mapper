@@ -6,10 +6,10 @@ import { mapperApply } from "./mapperApply";
 
 export const mapper: MapperFn = <
   T extends GenericObject,
-  S extends GenericObject
+  S extends GenericObject,
 >(
   input: T,
-  mapper: Mapping<T, S>
+  mapper: Mapping<T, S>,
 ): S => {
   let mapperResult = {} as S;
 
@@ -18,7 +18,7 @@ export const mapper: MapperFn = <
     mapperResult = setByPath<S, keyof S>(
       mapperResult,
       mapperValue.dstPath,
-      mapperResultValue
+      mapperResultValue,
     );
   });
 

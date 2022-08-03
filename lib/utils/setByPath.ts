@@ -9,21 +9,21 @@ export function setByPath<T extends GenericObject>(
   obj: T,
   path: string,
   value: unknown,
-  pathSeparator?: string
+  pathSeparator?: string,
 ): unknown;
 
 export function setByPath<T extends GenericObject, K extends keyof T>(
   obj: T,
   path: Paths<T, MAX_OBJECT_DEPTH> & string,
   value: T[K],
-  pathSeparator?: string
-): T
+  pathSeparator?: string,
+): T;
 
 export function setByPath<T extends GenericObject, K extends keyof T>(
   obj: T,
   path: Paths<T, MAX_OBJECT_DEPTH> & string,
   value: T[K],
-  pathSeparator = "."
+  pathSeparator = ".",
 ): T {
   if (!isObject(obj)) {
     return {} as T;

@@ -5,17 +5,17 @@ import { Getter } from "../interfaces/getter.interface";
 import { Paths } from "../interfaces/paths.interface";
 
 export function getByPath<T extends GenericObject, O = unknown, S = unknown>(
-  obj: T
+  obj: T,
 ): Getter<T, O, S>;
 
 export function getByPath<T extends GenericObject, O = unknown>(
-  obj: T
+  obj: T,
 ): Getter<T, O>;
 
 export function getByPath<T extends GenericObject, O = unknown>(obj: T) {
   return function Getter<T>(
     path: Paths<T, MAX_OBJECT_DEPTH> & string,
-    defaultValue?: unknown
+    defaultValue?: unknown,
   ): O {
     const traversablePath = path?.split(".") || [];
     const value = get(obj, traversablePath, defaultValue) as O;

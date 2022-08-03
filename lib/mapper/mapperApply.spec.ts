@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { Getter } from '../interfaces/getter.interface';
+import { Getter } from "../interfaces/getter.interface";
 import { MappingValue } from "../interfaces/mappingValue.interface";
 import { mapperApply } from "./mapperApply";
 
@@ -56,4 +56,3 @@ describe("Testing mapperApply function", () => {
     expect(result).toBe(100);
   });
 });
-

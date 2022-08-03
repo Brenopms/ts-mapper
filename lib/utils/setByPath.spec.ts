@@ -14,7 +14,7 @@ describe("Testing setByPath function", () => {
 
     const result = setByPath(inputObj, path, value);
     expect(result).toMatchObject({ a: 1, b: { c: 2 } });
-  })
+  });
 
   it("Should NOT change the original object", () => {
     const inputObj = { a: 1, b: { c: 2 } };
@@ -48,5 +48,4 @@ describe("Testing setByPath function", () => {
     const result = setByPath(inputObj, path, value);
     expect(result).toMatchObject({ x: 100, z: [50] });
   });
-
 });

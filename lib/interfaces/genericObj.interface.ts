@@ -1,1 +1,1 @@
-export type GenericObject = { [key: string | number | symbol]: any }
+export type GenericObject = { [key: string | number | symbol]: any };
