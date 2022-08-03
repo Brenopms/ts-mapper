@@ -21,7 +21,7 @@ describe("Testing setByPath function", () => {
     const path = "x.z";
     const value = 100;
 
-    const result = setByPath(inputObj, path, value);
+    const _result = setByPath(inputObj, path, value);
     expect(inputObj).toMatchObject({ a: 1, b: { c: 2 } });
   });
 

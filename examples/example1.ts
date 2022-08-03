@@ -1,6 +1,5 @@
 import { mapper } from "../lib/mapper/mapper";
 import { Mapping } from "../lib/interfaces/mapping.interface";
-import { getByPath } from "../lib/utils/getByPath";
 
 interface Input1 {
   prop1: number;
