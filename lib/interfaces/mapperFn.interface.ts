@@ -1,10 +1,10 @@
 import { GenericObject } from './genericObj.interface';
-import { Mapper } from './mapper.interface';
+import { Mapping } from './mapping.interface';
 
 export type MapperFn = <
   T extends GenericObject,
   S extends GenericObject
   >(
   input: T,
-  mapper: Mapper<T, S>
+  mapper: Mapping<T, S>
 ) => S;

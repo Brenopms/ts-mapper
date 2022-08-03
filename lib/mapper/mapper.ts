@@ -1,5 +1,5 @@
 import { GenericObject } from "../interfaces/genericObj.interface";
-import { Mapper } from "../interfaces/mapper.interface";
+import { Mapping } from "../interfaces/mapping.interface";
 import { MapperFn } from "../interfaces/mapperFn.interface";
 import { setByPath } from "../utils/setByPath";
 import { mapperApply } from "./mapperApply";
@@ -9,7 +9,7 @@ export const mapper: MapperFn = <
   S extends GenericObject
 >(
   input: T,
-  mapper: Mapper<T, S>
+  mapper: Mapping<T, S>
 ): S => {
   let mapperResult = {} as S;
 

@@ -1,11 +1,12 @@
 import { describe, it, expect, vi } from "vitest";
-import { MapperValue } from "../interfaces/mapperValue.interface";
+import { Getter } from '../interfaces/getter.interface';
+import { MappingValue } from "../interfaces/mappingValue.interface";
 import { mapperApply } from "./mapperApply";
 
 describe("Testing mapperApply function", () => {
   it("Should return the source path value from a given object", () => {
     const inputObj = { a: 1, b: 2 };
-    const mapperValue: MapperValue<any, any> = {
+    const mapperValue: MappingValue<any, any> = {
       srcPath: "a",
       dstPath: "x",
       defaultValue: undefined,
@@ -17,7 +18,7 @@ describe("Testing mapperApply function", () => {
 
   it("Should return the default value if source path is passed but its not valid", () => {
     const inputObj = { a: 1, b: 2 };
-    const mapperValue: MapperValue<any, any> = {
+    const mapperValue: MappingValue<any, any> = {
       srcPath: "z.f",
       dstPath: "x",
       defaultValue: 500,
@@ -28,10 +29,10 @@ describe("Testing mapperApply function", () => {
 
   it("Should apply the transform function if srcPath is not defined", () => {
     const inputObj = { a: 1, b: 2 };
-    const mapperValue: MapperValue<any, any> = {
+    const mapperValue: MappingValue<any, any> = {
       dstPath: "x",
       defaultValue: undefined,
-      transform(getter) {
+      transform(getter: Getter<typeof inputObj, number>) {
         return getter("a") + getter("b");
       },
     };
@@ -46,7 +47,7 @@ describe("Testing mapperApply function", () => {
 
   it("Should return the default value if transform and srcPath are not defined", () => {
     const inputObj = { a: 1, b: 2 };
-    const mapperValue: MapperValue<any, any> = {
+    const mapperValue: MappingValue<any, any> = {
       dstPath: "x",
       defaultValue: 100,
     };

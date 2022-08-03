@@ -1,7 +1,7 @@
-import { MapperValue } from "../interfaces/mapperValue.interface";
+import { MappingValue } from "../interfaces/mappingValue.interface";
 import { getByPath } from "../utils/getByPath";
 
-export const mapperApply = <T, O>(input: T, mapperValue: MapperValue<T, O>) => {
+export const mapperApply = <T, O>(input: T, mapperValue: MappingValue<T, O>) => {
   if (mapperValue.srcPath) {
     return getByPath(input)(mapperValue.srcPath, mapperValue.defaultValue);
   }

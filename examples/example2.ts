@@ -1,6 +1,6 @@
-import { Mapper } from "../lib/interfaces/mapper.interface";
+import { Getter } from '../lib/interfaces/getter.interface';
+import { Mapping } from "../lib/interfaces/mapping.interface";
 import { mapper } from "../lib/mapper/mapper";
-import { Getter } from '../lib/utils/getByPath';
 
 interface Input2 {
   prop1: {
@@ -30,7 +30,7 @@ const input2 = {
   prop5: "2022-07-29T13:59:36.997Z",
 };
 
-const mapper2: Mapper<Input2, Output2> = [
+const mapper2: Mapping<Input2, Output2> = [
   {
     dstPath: "out1",
     defaultValue: "",

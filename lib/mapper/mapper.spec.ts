@@ -9,9 +9,8 @@ import {
 } from "vitest";
 import * as mapperApplyMd from "./mapperApply";
 import * as setByPathMd from "../utils/setByPath";
-import { Mapper } from "../interfaces/mapper.interface";
+import { Mapping } from "../interfaces/mapping.interface";
 import { mapper } from "./mapper";
-
 
 describe("Testing mapper function", () => {
   let setByPathSpy: SpyInstance;
@@ -28,10 +27,10 @@ describe("Testing mapper function", () => {
   });
 
   it("Should invoke mapperApply for each item in Mapper", () => {
-    setByPathSpy.mockReturnValue({})
-    mapperApplySpy.mockReturnValue({})
+    setByPathSpy.mockReturnValue({});
+    mapperApplySpy.mockReturnValue({});
 
-    const map: Mapper<any, any> = [
+    const map: Mapping<any, any> = [
       {
         srcPath: "a",
         dstPath: "x",
@@ -46,7 +45,7 @@ describe("Testing mapper function", () => {
 
     const inputObj = { a: 1, b: 2 };
 
-    const result = mapper(inputObj, map)
-    expect(mapperApplySpy).toHaveBeenCalledTimes(2)
+    const _result = mapper(inputObj, map);
+    expect(mapperApplySpy).toHaveBeenCalledTimes(2);
   });
 });

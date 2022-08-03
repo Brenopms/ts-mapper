@@ -1,6 +1,6 @@
 import { mapper } from "../lib/mapper/mapper";
-import { Mapper } from "../lib/interfaces/mapper.interface";
-import { getByPath, Getter } from "../lib/utils/getByPath";
+import { Mapping } from "../lib/interfaces/mapping.interface";
+import { getByPath } from "../lib/utils/getByPath";
 
 interface Input1 {
   prop1: number;
@@ -20,7 +20,7 @@ const input: Input1 = {
   prop3: "string",
 };
 
-const mapper2: Mapper<Input1, Output1> = [
+const mapper2: Mapping<Input1, Output1> = [
   {
     srcPath: "prop1",
     dstPath: "prop10",
