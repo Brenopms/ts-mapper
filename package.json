@@ -1,6 +1,6 @@
 {
   "name": "ts-obj-mapper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Typescript object mapper",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -12,7 +12,8 @@
     "prepublish": "npm run build",
     "lint": "eslint ./lib/",
     "lint:fix": "eslint --fix ./lib",
-    "format": "prettier --write './lib' --config ./.prettierrc",
+    "format": "prettier --check './lib' --config ./.prettierrc",
+    "format:fix": "prettier --write './lib' --config ./.prettierrc",
     "test": "vitest run",
     "test:watch": "vitest"
   },
