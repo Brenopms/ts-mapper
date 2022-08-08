@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "prepublish": "npm run build",
-    "release": "semantic release",
+    "release": "semantic-release",
     "lint": "eslint ./lib/",
     "lint:fix": "eslint --fix ./lib",
     "format": "prettier --check './lib' --config ./.prettierrc",
