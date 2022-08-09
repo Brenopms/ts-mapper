@@ -1,12 +1,17 @@
-import { GenericObject } from "../interfaces/genericObj.interface";
 import { Mapping } from "../interfaces/mapping.interface";
 import { MapperFn } from "../interfaces/mapperFn.interface";
 import { setByPath } from "../utils/setByPath";
 import { mapperApply } from "./mapperApply";
 
+/**
+ * 
+ * @param input 
+ * @param mapper 
+ * @returns 
+ */
 export const mapper: MapperFn = <
-  T extends GenericObject,
-  S extends GenericObject,
+  T extends object,
+  S extends object,
 >(
   input: T,
   mapper: Mapping<T, S>,

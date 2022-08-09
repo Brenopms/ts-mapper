@@ -1,7 +1,13 @@
 import { MappingValue } from "../interfaces/mappingValue.interface";
 import { getByPath } from "../utils/getByPath";
 
-export const mapperApply = <T, O>(
+/**
+ * Apply the mapper for only one field of the mapping 
+ * @param input - Source object to be transformed
+ * @param mapperValue - Value to be mapped
+ * @returns Transformed object result
+ */
+export const mapperApply = <T extends object, O extends object>(
   input: T,
   mapperValue: MappingValue<T, O>,
 ) => {
