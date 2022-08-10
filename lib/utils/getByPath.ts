@@ -7,9 +7,7 @@ export function getByPath<T extends object, O = unknown, S = unknown>(
   obj: T,
 ): Getter<T, O, S>;
 
-export function getByPath<T extends object, O = unknown>(
-  obj: T,
-): Getter<T, O>;
+export function getByPath<T extends object, O = unknown>(obj: T): Getter<T, O>;
 
 export function getByPath<T extends object, O = unknown>(obj: T) {
   return function Getter<T>(

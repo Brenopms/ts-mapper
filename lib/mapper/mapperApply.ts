@@ -2,7 +2,7 @@ import { MappingValue } from "../interfaces/mappingValue.interface";
 import { getByPath } from "../utils/getByPath";
 
 /**
- * Apply the mapper for only one field of the mapping 
+ * Apply the mapper for only one field of the mapping
  * @param input - Source object to be transformed
  * @param mapperValue - Value to be mapped
  * @returns Transformed object result

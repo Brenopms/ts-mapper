@@ -4,15 +4,12 @@ import { setByPath } from "../utils/setByPath";
 import { mapperApply } from "./mapperApply";
 
 /**
- * 
- * @param input 
- * @param mapper 
- * @returns 
+ *
+ * @param input
+ * @param mapper
+ * @returns
  */
-export const mapper: MapperFn = <
-  T extends object,
-  S extends object,
->(
+export const mapper: MapperFn = <T extends object, S extends object>(
   input: T,
   mapper: Mapping<T, S>,
 ): S => {
