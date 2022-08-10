@@ -5,11 +5,4 @@ import { Getter } from "./interfaces/getter.interface";
 import { mapper } from "./mapper/mapper";
 import { mapperApply } from "./mapper/mapperApply";
 
-export {
-  Mapping,
-  MappingValue,
-  MapperFn,
-  Getter,
-  mapper,
-  mapperApply,
-};
+export { Mapping, MappingValue, MapperFn, Getter, mapper, mapperApply };
