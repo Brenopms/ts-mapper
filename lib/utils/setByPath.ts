@@ -4,6 +4,15 @@ import { isObject } from "./isObject";
 import { MAX_OBJECT_DEPTH } from "../constants/maxObjectDepth";
 import set from "lodash.set";
 
+/**
+ * Sets a value inside of object according to the passed key
+ * This function is pure and will return a new object
+ *
+ * @param obj Object to be modified
+ * @param path Path of the value to be added
+ * @param value Value to be added to object
+ * @param pathSeparator Path separator
+ */
 export function setByPath<T extends object>(
   obj: T,
   path: string,
