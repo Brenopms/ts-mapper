@@ -3,9 +3,11 @@ import { getByPath } from "../utils/getByPath";
 
 /**
  * Apply the mapper for only one field of the mapping
- * @param input - Source object to be transformed
- * @param mapperValue - Value to be mapped
+ * @param input Source object to be transformed
+ * @param mapperValue Value to be mapped
  * @returns Transformed object result
+ * @template T Source Object type
+ * @template O Output value type
  */
 export const mapperApply = <T extends object, O extends object>(
   input: T,

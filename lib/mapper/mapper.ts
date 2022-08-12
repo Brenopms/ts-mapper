@@ -4,18 +4,21 @@ import { setByPath } from "../utils/setByPath";
 import { mapperApply } from "./mapperApply";
 
 /**
+ * Applies all the rules specified in the Mapping to the source object, creating the destiny object accordingly
  *
- * @param input
- * @param mapper
- * @returns
+ * @param input Object to be transformed
+ * @param mapping Mapping object with the transformation rules
+ * @returns Mapped object
+ * @template T Input type
+ * @template S Output type
  */
 export const mapper: MapperFn = <T extends object, S extends object>(
   input: T,
-  mapper: Mapping<T, S>,
+  mapping: Mapping<T, S>,
 ): S => {
   let mapperResult = {} as S;
 
-  mapper.forEach((mapperValue) => {
+  mapping.forEach((mapperValue) => {
     const mapperResultValue = mapperApply<T, S>(input, mapperValue);
     mapperResult = setByPath<S, keyof S>(
       mapperResult,

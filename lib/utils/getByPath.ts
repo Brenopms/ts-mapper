@@ -9,6 +9,10 @@ import { Paths } from "../interfaces/paths.interface";
  *
  * @param obj Object that contains the value
  * @returns Curried getter function the accepts the path and a default value
+ *
+ * @template T Object type
+ * @template O Value to be accessed type
+ * @template S Default value type
  */
 export function getByPath<T extends object, O = unknown, S = unknown>(
   obj: T,

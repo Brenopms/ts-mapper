@@ -12,6 +12,9 @@ import set from "lodash.set";
  * @param path Path of the value to be added
  * @param value Value to be added to object
  * @param pathSeparator Path separator
+ *
+ * @template T type of object to be set
+ * @template K type of key of the object that will be set
  */
 export function setByPath<T extends object>(
   obj: T,
