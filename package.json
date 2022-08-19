@@ -17,7 +17,7 @@
     "format:fix": "prettier --write './lib' --config ./.prettierrc",
     "test": "vitest run",
     "test:watch": "vitest",
-    "generate-doc": "typedoc ./lib --githubPages --includeVersion --out ./genDocs"
+    "generate-docs": "typedoc ./lib --githubPages --includeVersion --out ./genDocs"
   },
   "author": "Breno Magalhaes",
   "repository": "https://github.com/Brenopms/ts-mapper",
