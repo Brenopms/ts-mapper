@@ -16,7 +16,8 @@
     "format": "prettier --check './lib' --config ./.prettierrc",
     "format:fix": "prettier --write './lib' --config ./.prettierrc",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "generate-doc": "typedoc ./lib --githubPages --includeVersion --out ./genDocs"
   },
   "author": "Breno Magalhaes",
   "repository": "https://github.com/Brenopms/ts-mapper",
@@ -38,15 +39,16 @@
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "c8": "^7.12.0",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "^28.1.3",
     "prettier": "^2.7.1",
     "semantic-release": "^19.0.3",
-    "conventional-changelog-conventionalcommits": "^5.0.0",
     "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1",
+    "typedoc": "^0.23.10",
     "typescript": "^4.7.4",
     "vitest": "^0.20.2"
   }
